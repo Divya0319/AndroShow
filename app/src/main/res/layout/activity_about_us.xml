@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/relativeAboutUs"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/avengers_infinity_war_phone_wallpaper5">
+
+    <TextView
+        android:id="@+id/AboutAvengers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:text="@string/AboutMovie_Text"
+        android:textColor="#989fa6"
+        android:textSize="30sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/AboutAvengers"
+        android:background="@drawable/circular_boundary"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:text="To Know more about Avenger Infinity War and its cast, click the link below"
+            android:textColor="#daa1a1"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/link_to_wiki"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/click_text"
+            android:textColor="#daa111"
+            android:textSize="20sp" />
+
+
+    </LinearLayout>
+
+</RelativeLayout>

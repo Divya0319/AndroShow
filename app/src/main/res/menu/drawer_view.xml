@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/menu_song"
+            android:icon="@drawable/listen_icon"
+            android:title="@string/ListenSongText" />
+        <item
+            android:id="@+id/menu_videos"
+            android:icon="@drawable/video_icon"
+            android:title="@string/WatchVidText" />
+        <item
+            android:id="@+id/menu_gallery"
+            android:icon="@drawable/wallpaper_icon"
+            android:title="@string/ViewWallText" />
+        <item
+            android:id="@+id/menu_ringtones"
+            android:icon="@drawable/music_note"
+            android:title="@string/RingDownText" />
+        <item
+            android:id="@+id/menu_aboutUs"
+            android:icon="@drawable/about_us_icon"
+            android:title="@string/AboutMovie_Text" />
+    </group>
+
+</menu>

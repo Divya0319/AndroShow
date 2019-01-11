@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/relativeSongs"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/headphone_full_screen">
+
+    <TextView
+        android:id="@+id/songheading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/songPhrase"
+        android:textColor="#1f9dc6"
+        android:textSize="30sp" />
+
+    <ListView
+        android:id="@+id/listView_songs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/seekBar"
+        android:layout_below="@+id/songheading"
+        android:layout_margin="10dp"
+        android:background="@android:color/transparent"
+        android:cacheColorHint="@android:color/transparent"
+        android:choiceMode="singleChoice"
+        android:divider="@drawable/transparent_color"
+        android:dividerHeight="5dip" />
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        style="@style/CustomSeekBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/elapsedTime" />
+
+    <TextView
+        android:id="@+id/elapsedTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/buttonPlay"
+        android:layout_alignStart="@+id/seekBar"
+        android:textColor="#00f0c4"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/endTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/buttonPlay"
+        android:layout_alignEnd="@+id/seekBar"
+        android:textColor="#00f0c4"
+        android:textSize="20sp" />
+
+    <ImageView
+        android:id="@+id/buttonPlay"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/play"
+        android:contentDescription="@string/PlayDesc" />
+
+    <ImageView
+        android:id="@+id/buttonPause"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/pause"
+        android:contentDescription="@string/PauseDesc" />
+
+
+    <ImageView
+        android:id="@+id/buttonStop"
+        android:layout_width="57dp"
+        android:layout_height="57dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/stop"
+        android:contentDescription="@string/StopDesc" />
+
+</RelativeLayout>

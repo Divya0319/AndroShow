@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeVideos"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/infinity_war_video_bg"
+    android:orientation="vertical"
+    tools:context=".activities.VideosActivity">
+
+    <TextView
+        android:id="@+id/VideoText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:text="@string/videosString"
+        android:textColor="#10607A"
+        android:textSize="30sp" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recView_videos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/VideoText"
+        android:layout_margin="10dp"
+        android:background="@android:color/transparent"
+        android:divider="@drawable/transparent_color"
+        android:dividerHeight="10dip" />
+
+</RelativeLayout>

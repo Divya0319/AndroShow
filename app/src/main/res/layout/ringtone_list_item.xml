@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#ffffff">
+
+    <ImageView
+        android:id="@+id/ringPlayIcon"
+        android:layout_width="50dp"
+        android:layout_height="60dp"
+        android:contentDescription="@string/app_name"
+        android:gravity="center"
+        android:src="@drawable/music_note" />
+
+    <TextView
+        android:id="@+id/ringTones_title"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:layout_toEndOf="@+id/ringPlayIcon"
+        android:text="Song Title:"
+        android:textColor="#10607A"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/ringTones_duration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/ringTones_title"
+        android:layout_below="@+id/ringTones_title"
+        android:layout_margin="3dp"
+        android:text="Duration:"
+        android:textColor="#17A3D1"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/bt_download"
+        android:layout_width="55dp"
+        android:layout_height="60dp"
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/download" />
+
+</RelativeLayout>
+
