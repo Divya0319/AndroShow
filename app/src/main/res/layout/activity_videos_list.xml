@@ -18,7 +18,7 @@
         android:textColor="#10607A"
         android:textSize="30sp" />
 
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recView_videos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

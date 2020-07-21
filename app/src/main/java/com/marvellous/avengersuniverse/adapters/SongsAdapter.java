@@ -3,7 +3,7 @@ package com.marvellous.avengersuniverse.adapters;
 import android.app.Activity;
 import android.graphics.Color;
 import android.graphics.Typeface;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
