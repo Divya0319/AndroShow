@@ -1,31 +1,92 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Personal Projects/AvengersUniverse/app/src/main/res/drawable/button_bg.xml" value="0.1285" />
+        <entry key="..\:/Personal Projects/AvengersUniverse/app/src/main/res/drawable/checked_state_list_song.xml" value="0.1285" />
+        <entry key="..\:/Personal Projects/AvengersUniverse/app/src/main/res/drawable/circular_boundary.xml" value="0.1285" />
+        <entry key="..\:/Personal Projects/AvengersUniverse/app/src/main/res/drawable/default_dot.xml" value="0.1285" />
+        <entry key="..\:/Personal Projects/AvengersUniverse/app/src/main/res/drawable/divider_recview.xml" value="0.1285" />
+        <entry key="..\:/Personal Projects/AvengersUniverse/app/src/main/res/drawable/gradient_orange.xml" value="0.1285" />
+        <entry key="..\:/Personal Projects/AvengersUniverse/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1285" />
+        <entry key="..\:/Personal Projects/AvengersUniverse/app/src/main/res/drawable/oval_shape.xml" value="0.1285" />
+        <entry key="..\:/Personal Projects/AvengersUniverse/app/src/main/res/drawable/progress_appearance.xml" value="0.1285" />
+        <entry key="..\:/Personal Projects/AvengersUniverse/app/src/main/res/drawable/text_shadow_wallpapers.xml" value="0.1285" />
+        <entry key="..\:/Personal Projects/AvengersUniverse/app/src/main/res/layout/activity_about_us.xml" value="0.33" />
+        <entry key="..\:/Personal Projects/AvengersUniverse/app/src/main/res/layout/activity_dashboard.xml" value="0.21614583333333334" />
+        <entry key="..\:/Personal Projects/AvengersUniverse/app/src/main/res/layout/activity_ringtones.xml" value="0.21614583333333334" />
+        <entry key="..\:/Personal Projects/AvengersUniverse/app/src/main/res/layout/activity_songs.xml" value="0.19537037037037036" />
+        <entry key="..\:/Personal Projects/AvengersUniverse/app/src/main/res/layout/activity_splash.xml" value="0.21614583333333334" />
+        <entry key="..\:/Personal Projects/AvengersUniverse/app/src/main/res/layout/activity_videos.xml" value="0.21614583333333334" />
+        <entry key="..\:/Personal Projects/AvengersUniverse/app/src/main/res/layout/activity_videos_list.xml" value="0.22" />
+        <entry key="..\:/Personal Projects/AvengersUniverse/app/src/main/res/layout/activity_wallpaper_captain.xml" value="0.21614583333333334" />
+        <entry key="..\:/Personal Projects/AvengersUniverse/app/src/main/res/layout/activity_wallpaper_doctor.xml" value="0.21614583333333334" />
+        <entry key="..\:/Personal Projects/AvengersUniverse/app/src/main/res/layout/activity_wallpaper_iron_man.xml" value="0.21614583333333334" />
+        <entry key="..\:/Personal Projects/AvengersUniverse/app/src/main/res/layout/activity_wallpaper_item.xml" value="0.21614583333333334" />
+        <entry key="..\:/Personal Projects/AvengersUniverse/app/src/main/res/layout/activity_wallpaper_loki.xml" value="0.19537037037037036" />
+        <entry key="..\:/Personal Projects/AvengersUniverse/app/src/main/res/layout/activity_wallpaper_misc.xml" value="0.21614583333333334" />
+        <entry key="..\:/Personal Projects/AvengersUniverse/app/src/main/res/layout/activity_wallpaper_poster.xml" value="0.21614583333333334" />
+        <entry key="..\:/Personal Projects/AvengersUniverse/app/src/main/res/layout/activity_wallpaper_spidy.xml" value="0.21614583333333334" />
+        <entry key="..\:/Personal Projects/AvengersUniverse/app/src/main/res/layout/activity_wallpaper_tchaala.xml" value="0.21614583333333334" />
+        <entry key="..\:/Personal Projects/AvengersUniverse/app/src/main/res/layout/activity_wallpaper_thor.xml" value="0.21614583333333334" />
+        <entry key="..\:/Personal Projects/AvengersUniverse/app/src/main/res/layout/activity_wallpaper_wanda.xml" value="0.21614583333333334" />
+        <entry key="..\:/Personal Projects/AvengersUniverse/app/src/main/res/layout/activity_wallpaper_widow.xml" value="0.21614583333333334" />
+        <entry key="..\:/Personal Projects/AvengersUniverse/app/src/main/res/layout/activity_wallpapers.xml" value="0.21614583333333334" />
+        <entry key="..\:/Personal Projects/AvengersUniverse/app/src/main/res/layout/activity_wiki.xml" value="0.21614583333333334" />
+        <entry key="..\:/Personal Projects/AvengersUniverse/app/src/main/res/layout/custom_fullimage_dialog.xml" value="0.21614583333333334" />
+        <entry key="..\:/Personal Projects/AvengersUniverse/app/src/main/res/layout/nav_header.xml" value="0.21614583333333334" />
+        <entry key="..\:/Personal Projects/AvengersUniverse/app/src/main/res/layout/notconnected.xml" value="0.21614583333333334" />
+        <entry key="..\:/Personal Projects/AvengersUniverse/app/src/main/res/layout/ringtone_list_item.xml" value="0.21614583333333334" />
+        <entry key="..\:/Personal Projects/AvengersUniverse/app/src/main/res/layout/songs_list_item.xml" value="0.19537037037037036" />
+        <entry key="..\:/Personal Projects/AvengersUniverse/app/src/main/res/layout/videos_item.xml" value="0.21614583333333334" />
+        <entry key="..\:/Personal Projects/AvengersUniverse/app/src/main/res/layout/view_pager_photos_item.xml" value="0.21614583333333334" />
+        <entry key="..\:/Personal Projects/AvengersUniverse/app/src/main/res/layout/view_pager_videos_item.xml" value="0.21614583333333334" />
+        <entry key="..\:/Personal Projects/AvengersUniverse/app/src/main/res/layout/wallpaper_menu_item.xml" value="0.2" />
+        <entry key="..\:/Personal Projects/AvengersUniverse/app/src/main/res/menu/drawer_view.xml" value="0.21614583333333334" />
+      </map>
+    </option>
+  </component>
   <component name="NullableNotNullManager">
     <option name="myDefaultNullable" value="android.support.annotation.Nullable" />
     <option name="myDefaultNotNull" value="android.support.annotation.NonNull" />
     <option name="myNullables">
       <value>
-        <list size="5">
+        <list size="12">
           <item index="0" class="java.lang.String" itemvalue="org.jetbrains.annotations.Nullable" />
           <item index="1" class="java.lang.String" itemvalue="javax.annotation.Nullable" />
           <item index="2" class="java.lang.String" itemvalue="javax.annotation.CheckForNull" />
           <item index="3" class="java.lang.String" itemvalue="edu.umd.cs.findbugs.annotations.Nullable" />
           <item index="4" class="java.lang.String" itemvalue="android.support.annotation.Nullable" />
+          <item index="5" class="java.lang.String" itemvalue="org.checkerframework.checker.nullness.compatqual.NullableDecl" />
+          <item index="6" class="java.lang.String" itemvalue="androidx.annotation.Nullable" />
+          <item index="7" class="java.lang.String" itemvalue="org.eclipse.jdt.annotation.Nullable" />
+          <item index="8" class="java.lang.String" itemvalue="com.android.annotations.Nullable" />
+          <item index="9" class="java.lang.String" itemvalue="androidx.annotation.RecentlyNullable" />
+          <item index="10" class="java.lang.String" itemvalue="org.checkerframework.checker.nullness.qual.Nullable" />
+          <item index="11" class="java.lang.String" itemvalue="org.checkerframework.checker.nullness.compatqual.NullableType" />
         </list>
       </value>
     </option>
     <option name="myNotNulls">
       <value>
-        <list size="4">
+        <list size="11">
           <item index="0" class="java.lang.String" itemvalue="org.jetbrains.annotations.NotNull" />
           <item index="1" class="java.lang.String" itemvalue="javax.annotation.Nonnull" />
           <item index="2" class="java.lang.String" itemvalue="edu.umd.cs.findbugs.annotations.NonNull" />
           <item index="3" class="java.lang.String" itemvalue="android.support.annotation.NonNull" />
+          <item index="4" class="java.lang.String" itemvalue="androidx.annotation.RecentlyNonNull" />
+          <item index="5" class="java.lang.String" itemvalue="org.checkerframework.checker.nullness.qual.NonNull" />
+          <item index="6" class="java.lang.String" itemvalue="com.android.annotations.NonNull" />
+          <item index="7" class="java.lang.String" itemvalue="androidx.annotation.NonNull" />
+          <item index="8" class="java.lang.String" itemvalue="org.checkerframework.checker.nullness.compatqual.NonNullType" />
+          <item index="9" class="java.lang.String" itemvalue="org.checkerframework.checker.nullness.compatqual.NonNullDecl" />
+          <item index="10" class="java.lang.String" itemvalue="org.eclipse.jdt.annotation.NonNull" />
         </list>
       </value>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

@@ -15,7 +15,7 @@
         android:textColor="#9c4b0d"
         android:textSize="40sp" />
 
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/wallmenu_recView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

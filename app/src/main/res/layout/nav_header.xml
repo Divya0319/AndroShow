@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="120dp"
-    android:background="@drawable/avengers_logo_nav_header"
+    android:background="@drawable/headphone_background"
     android:gravity="bottom"
     android:orientation="vertical"
     android:padding="10dp"
@@ -11,7 +11,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="What is your wish?"
+        android:layout_marginStart="24dp"
+        android:text="@string/what_is_your_wish"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </LinearLayout>

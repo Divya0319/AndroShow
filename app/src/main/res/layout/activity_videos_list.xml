@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/relativeVideos"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/infinity_war_video_bg"
+    android:background="@drawable/movie_video_page_bg"
     android:orientation="vertical"
     tools:context=".activities.VideosActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tool_bar"
+        android:layout_width="match_parent"
+        android:theme="@style/Toolbar.Button.Navigation.Tinted.Black"
+        app:navigationIcon="?attr/homeAsUpIndicator"
+        android:layout_height="36dp"/>
 
     <TextView
         android:id="@+id/VideoText"
@@ -14,11 +22,12 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:gravity="center"
+        android:textStyle="bold"
         android:text="@string/videosString"
-        android:textColor="#10607A"
-        android:textSize="30sp" />
+        android:textColor="#110527"
+        android:textSize="24sp" />
 
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recView_videos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

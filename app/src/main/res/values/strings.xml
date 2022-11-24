@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Avengers Universe</string>
+    <string name="app_name">MovTronix</string>
     <string name="notConnectedDesc">Internet not connected</string>
     <string name="videosString">Videos</string>
     <string name="hello_world">Hello world!</string>
@@ -34,4 +34,5 @@
     <string name="adUnitId">ca-app-pub-4759311195261541/7914600268</string>
     <string name="checkInternetMessage">Please check your internet connection</string>
     <string name="somethingWentWrong">Something Went Wrong!!  </string>
+    <string name="what_is_your_wish">What is your wish?</string>
 </resources>
