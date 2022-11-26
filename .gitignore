@@ -2,14 +2,11 @@
 .idea/*
 .gradle
 /local.properties
-/.idea/libraries
-/.idea/workspace.xml
 .DS_Store
 /build
 /captures
 .externalNativeBuild
-.idea/vcs.xml
-.idea/modules.xml
 app/release/*
+/release
 *.aab
 *.apk
