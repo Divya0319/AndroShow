@@ -20,4 +20,12 @@
         <item name="colorControlNormal">@color/colorPrimary</item>
     </style>
 
+    <style name="Toolbar.Button.Navigation.Tinted.Black" parent="Widget.AppCompat.Toolbar.Button.Navigation">
+        <item name="tint">@color/black</item>
+    </style>
+
+    <style name="Toolbar.Button.Navigation.Tinted.White" parent="Widget.AppCompat.Toolbar.Button.Navigation">
+        <item name="tint">@color/colorWhite</item>
+    </style>
+
 </resources>

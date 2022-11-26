@@ -100,15 +100,6 @@
             android:textColor="@color/colorWhite"
             android:textSize="15sp" />
 
-        <com.google.android.gms.ads.AdView
-            android:id="@+id/adView_dashboard"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            app:adSize="BANNER"
-            app:adUnitId="@string/adUnitId" />
-
     </RelativeLayout>
 
     <com.google.android.material.navigation.NavigationView

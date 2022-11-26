@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.marvellous.avengersuniverse">
+    package="com.alaukikapps.movtronix">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.SET_WALLPAPER" />
@@ -14,7 +14,7 @@
         tools:ignore="ProtectedPermissions" />
 
     <application
-        android:name=".staticclasses.App"
+        android:name="com.alaukikapps.movtronix.staticclasses.App"
         android:allowBackup="true"
         tools:replace="android:appComponentFactory"
         android:icon="@mipmap/ic_launcher"
@@ -24,26 +24,28 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".activities.DashBoardActivity"
+            android:exported="true"
+            android:name="com.alaukikapps.movtronix.activities.DashBoardActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".activities.AboutUsActivity"
+            android:name="com.alaukikapps.movtronix.activities.AboutUsActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.NotConnectedActivity"
+            android:name="com.alaukikapps.movtronix.activities.NotConnectedActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.RingTonesActivity"
+            android:name="com.alaukikapps.movtronix.activities.RingTonesActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.SongsActivity"
+            android:name="com.alaukikapps.movtronix.activities.SongsActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.SplashActivity"
+            android:exported="true"
+            android:name="com.alaukikapps.movtronix.activities.SplashActivity"
             android:screenOrientation="portrait">
 
             <intent-filter>
@@ -54,49 +56,49 @@
         </activity>
 
         <activity
-            android:name=".activities.VideosActivity"
+            android:name="com.alaukikapps.movtronix.activities.VideosActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.WallpaperActivity"
+            android:name="com.alaukikapps.movtronix.activities.WallpaperActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.WallpaperCaptain"
+            android:name="com.alaukikapps.movtronix.activities.WallpaperCaptain"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.WallpaperDoctor"
+            android:name="com.alaukikapps.movtronix.activities.WallpaperDoctor"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.WallpaperIronMan"
+            android:name="com.alaukikapps.movtronix.activities.WallpaperIronMan"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.WallpaperLoki"
+            android:name="com.alaukikapps.movtronix.activities.WallpaperLoki"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.WallpaperMisc"
+            android:name="com.alaukikapps.movtronix.activities.WallpaperMisc"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.WallpaperPoster"
+            android:name="com.alaukikapps.movtronix.activities.WallpaperPoster"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.WallpaperSpidy"
+            android:name="com.alaukikapps.movtronix.activities.WallpaperSpidy"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.WallpaperTchaala"
+            android:name="com.alaukikapps.movtronix.activities.WallpaperTchaala"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.WallpaperThor"
+            android:name="com.alaukikapps.movtronix.activities.WallpaperThor"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.WallpaperWanda"
+            android:name="com.alaukikapps.movtronix.activities.WallpaperWanda"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.WallpaperWidow"
+            android:name="com.alaukikapps.movtronix.activities.WallpaperWidow"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.WikiActivity"
+            android:name="com.alaukikapps.movtronix.activities.WikiActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.YouTubeVideoActivity"
+            android:name="com.alaukikapps.movtronix.activities.YouTubeVideoActivity"
             android:screenOrientation="landscape" />
 
         <meta-data
@@ -104,4 +106,10 @@
             android:value="ca-app-pub-4759311195261541~3991258002" />
     </application>
 
+    <!-- This is needed for Youtube player to work inside app-->
+    <queries>
+        <intent>
+            <action android:name="com.google.android.youtube.api.service.START"/>
+        </intent>
+    </queries>
 </manifest>

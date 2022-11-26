@@ -3,8 +3,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/gradient_orange"
     tools:context=".activities.WallpaperPoster">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tool_bar"
+        android:layout_width="match_parent"
+        android:theme="@style/Toolbar.Button.Navigation.Tinted.Black"
+        app:navigationIcon="?attr/homeAsUpIndicator"
+        android:layout_height="36dp"/>
 
     <TextView
         android:id="@+id/textPosters"
@@ -13,7 +21,7 @@
         android:layout_centerHorizontal="true"
         android:text="Posters"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="30sp" />
+        android:textSize="24sp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recView_poster"
