@@ -1,8 +1,8 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/layout_root"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/fullimage"
@@ -11,4 +11,22 @@
         android:contentDescription="@string/app_name"
         android:scaleType="fitXY" />
 
-</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start|top"
+        android:background="@android:drawable/screen_background_dark_transparent">
+
+        <TextView
+            android:id="@+id/poster_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="18sp"
+            tools:text="Humara Bajaj"
+            android:text=""
+            android:textColor="#ffffff"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</FrameLayout>

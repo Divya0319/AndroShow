@@ -28,6 +28,7 @@ public class SplashActivity extends AbstractBaseActivity {
                 try {
                     sleep(6 * 1000);
 
+                    mySong.stop();
                     final ConnectivityManager conMgr = (ConnectivityManager) getSystemService(
                             Context.CONNECTIVITY_SERVICE);
                     final NetworkInfo activeNetwork = conMgr.getActiveNetworkInfo();
