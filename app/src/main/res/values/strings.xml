@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MovTronix</string>
+    <string name="app_name">AndroShow</string>
     <string name="notConnectedDesc">Internet not connected</string>
     <string name="videosString">Videos</string>
     <string name="hello_world">Hello world!</string>
