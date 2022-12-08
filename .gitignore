@@ -10,3 +10,4 @@ app/release/*
 /release
 *.aab
 *.apk
+apikeys.properties

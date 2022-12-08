@@ -69,11 +69,11 @@ public class VideosActivity extends AbstractBaseActivity {
         LinearLayoutManager llm = new LinearLayoutManager(this);
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         recView_videos.setHasFixedSize(true);
+        recView_videos.setLayoutManager(llm);
+        recView_videos.setAdapter(videosAdapter);
         mProgressDialog = new ProgressDialog(this);
         mProgressDialog.setTitle("Wait..");
         mProgressDialog.setMessage("Loading Videos");
-        recView_videos.setLayoutManager(llm);
-        recView_videos.setAdapter(videosAdapter);
         TextView tvVideoText = findViewById(R.id.VideoText);
         Typeface mycustomFont = Typeface.createFromAsset(getAssets(), "fonts/Exo-Medium.otf");
 

@@ -1,9 +1,9 @@
 package com.fastturtle.androshow.network;
 
 public interface NetworkKeys {
-    String AVENGERS_BASE_URL = "https://hollywoodmovieapp.000webhostapp.com/movie/";
-    String RINGTONES_ENDPOINT = "ringtones.php";
-    String SONGS_ENDPOINT = "songs.php";
-    String VIDEOS_ENDPOINT = "videos.php";
-    String WALLPAPER_BG_ENDPOINT = "walls.php";
+    String ANDROSHOW_BASE_URL = "https://divya0319.github.io";
+    String RINGTONES_ENDPOINT = "/apis/ringtones.json";
+    String SONGS_ENDPOINT = "/apis/songs.json";
+    String VIDEOS_ENDPOINT = "/apis/videos.json";
+    String WALLPAPER_BG_ENDPOINT = "/apis/walls.json";
 }

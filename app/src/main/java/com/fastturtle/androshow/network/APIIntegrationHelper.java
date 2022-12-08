@@ -19,7 +19,7 @@ public class APIIntegrationHelper {
 
     private APIIntegrationHelper() {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(NetworkKeys.AVENGERS_BASE_URL)
+                .baseUrl(NetworkKeys.ANDROSHOW_BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         mApiServices = retrofit.create(ApiServices.class);

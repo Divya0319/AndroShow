@@ -53,7 +53,7 @@ public class VideosAdapter extends RecyclerView.Adapter<VideosAdapter.ViewHolder
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String vidId = VideosResponseArrayList.get(holder.getAdapterPosition()).getVIDID();
+                String vidId = VideosResponseArrayList.get(holder.getBindingAdapterPosition()).getVIDID();
                 Intent youTubeIntent = new Intent(context, YouTubeVideoActivity.class);
                 Bundle bun = new Bundle();
                 bun.putString("VideoId", vidId);

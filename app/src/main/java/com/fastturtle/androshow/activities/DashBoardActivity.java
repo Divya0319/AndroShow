@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.WindowManager;
 import android.widget.RelativeLayout;
 
+import com.fastturtle.androshow.network.NetworkKeys;
 import com.gigamole.infinitecycleviewpager.HorizontalInfiniteCycleViewPager;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
@@ -40,9 +41,9 @@ public class DashBoardActivity extends AbstractBaseActivity {
 
     };
     private String[] promo_images_url = {
-            "http://hollywoodmovieapp.000webhostapp.com/movie/walls/green_lake.jpg",
-            "http://hollywoodmovieapp.000webhostapp.com/movie/walls/hexagonal.jpg",
-            "http://hollywoodmovieapp.000webhostapp.com/movie/walls/green_grass.jpg"
+            NetworkKeys.ANDROSHOW_BASE_URL + "/walls/green_lake.jpg",
+            NetworkKeys.ANDROSHOW_BASE_URL + "/walls/hexagonal.jpg",
+            NetworkKeys.ANDROSHOW_BASE_URL + "/walls/green_grass.jpg"
     };
     private String[] promo_desc = {
             "Green Lake",

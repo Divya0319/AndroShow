@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.fastturtle.androshow.BuildConfig;
 import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
@@ -17,7 +20,7 @@ public class YouTubeVideoActivity extends YouTubeBaseActivity implements YouTube
     private static final int RECOVERY_REQUEST = 1;
     private YouTubePlayerView youTubeView;
     Bundle bun;
-    String VideoIdBundle;
+    String videoIdBundle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,17 +29,19 @@ public class YouTubeVideoActivity extends YouTubeBaseActivity implements YouTube
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         bun = getIntent().getExtras();
-        VideoIdBundle = bun.getString("VideoId");
+        videoIdBundle = bun.getString("VideoId");
         youTubeView = findViewById(R.id.youtube_view);
-        youTubeView.initialize(Config.YOUTUBE_API_KEY, this);
+        youTubeView.initialize(BuildConfig.YOUTUBE_API_KEY, this);
 
     }
 
     @Override
     public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer player, boolean wasRestored) {
-        if (!wasRestored) {
-            player.cueVideo(VideoIdBundle);
-        }
+//        if (!wasRestored) {
+//            player.cueVideo(VideoIdBundle);
+//        }
+        player.loadVideo(videoIdBundle);
+        player.play();
     }
 
     @Override
@@ -53,7 +58,7 @@ public class YouTubeVideoActivity extends YouTubeBaseActivity implements YouTube
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == RECOVERY_REQUEST) {
             // Retry initialization if user performed a recovery action
-            getYouTubePlayerProvider().initialize(Config.YOUTUBE_API_KEY, this);
+            getYouTubePlayerProvider().initialize(BuildConfig.YOUTUBE_API_KEY, this);
         }
     }
 
