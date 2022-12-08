@@ -37,15 +37,22 @@ public class StartingActivity extends AbstractBaseActivity {
         final ConnectivityManager conMgr = (ConnectivityManager) getSystemService(
                 Context.CONNECTIVITY_SERVICE);
         final NetworkInfo activeNetwork = conMgr.getActiveNetworkInfo();
-        if (activeNetwork != null && activeNetwork.isConnected()) {
-            new Handler().postDelayed(() -> {
-                appIcon.setVisibility(View.VISIBLE);
 
-                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-                    AnimatedVectorDrawable drawable = (AnimatedVectorDrawable) appIcon.getDrawable();
-                    drawable.start();
+            new Handler().postDelayed(() -> {
+                if (activeNetwork != null && activeNetwork.isConnected()) {
+                    appIcon.setVisibility(View.VISIBLE);
+
+                    if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+                        AnimatedVectorDrawable drawable = (AnimatedVectorDrawable) appIcon.getDrawable();
+                        drawable.start();
+                    } else {
+                        appIcon.setImageResource(R.mipmap.ic_launcher);
+                    }
                 } else {
-                    appIcon.setImageResource(R.mipmap.ic_launcher);
+                    Intent i2 = new Intent(getApplicationContext(), NotConnectedActivity.class);
+                    startActivity(i2);
+                    finish();
+
                 }
 
             }, 500);
@@ -56,11 +63,6 @@ public class StartingActivity extends AbstractBaseActivity {
                 finish();
             }, 2000);
 
-        } else {
-            Intent i2 = new Intent(getApplicationContext(), NotConnectedActivity.class);
-            startActivity(i2);
-            finish();
-
         }
 
 //                } catch (Exception e) {
@@ -70,7 +72,7 @@ public class StartingActivity extends AbstractBaseActivity {
 //            }
 //        };
 //        t1.start();
-    }
+//    }
 
 //    protected void onPause() {
 //        super.onPause();
