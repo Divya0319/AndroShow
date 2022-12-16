@@ -10,9 +10,12 @@ android {
         applicationId "com.fastturtle.androshow"
         minSdkVersion 19
         targetSdkVersion 33
-        versionCode 23
-        versionName "1.3.3.2"
-        buildConfigField("String", "YOUTUBE_API_KEY", apiKeyProperties['YOUTUBE_API_KEY'])
+        versionCode 25
+        versionName "2.1.1.2"
+        buildConfigField("String", "YOUTUBE_API_KEY_PART_1", apiKeyProperties['YOUTUBE_API_KEY_PART_1'])
+        buildConfigField("String", "YOUTUBE_API_KEY_PART_2", apiKeyProperties['YOUTUBE_API_KEY_PART_2'])
+        buildConfigField("String", "YOUTUBE_API_KEY_PART_3", apiKeyProperties['YOUTUBE_API_KEY_PART_3'])
+        buildConfigField("String", "YOUTUBE_API_KEY_PART_4", apiKeyProperties['YOUTUBE_API_KEY_PART_4'])
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
     }
     buildTypes {

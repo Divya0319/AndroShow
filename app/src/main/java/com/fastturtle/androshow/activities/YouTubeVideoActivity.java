@@ -31,7 +31,10 @@ public class YouTubeVideoActivity extends YouTubeBaseActivity implements YouTube
         bun = getIntent().getExtras();
         videoIdBundle = bun.getString("VideoId");
         youTubeView = findViewById(R.id.youtube_view);
-        youTubeView.initialize(BuildConfig.YOUTUBE_API_KEY, this);
+        youTubeView.initialize(BuildConfig.YOUTUBE_API_KEY_PART_1 +
+                BuildConfig.YOUTUBE_API_KEY_PART_2 +
+                BuildConfig.YOUTUBE_API_KEY_PART_3 +
+                BuildConfig.YOUTUBE_API_KEY_PART_4, this);
 
     }
 
@@ -58,7 +61,10 @@ public class YouTubeVideoActivity extends YouTubeBaseActivity implements YouTube
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == RECOVERY_REQUEST) {
             // Retry initialization if user performed a recovery action
-            getYouTubePlayerProvider().initialize(BuildConfig.YOUTUBE_API_KEY, this);
+            getYouTubePlayerProvider().initialize(BuildConfig.YOUTUBE_API_KEY_PART_1 +
+                    BuildConfig.YOUTUBE_API_KEY_PART_2 +
+                    BuildConfig.YOUTUBE_API_KEY_PART_3 +
+                    BuildConfig.YOUTUBE_API_KEY_PART_4, this);
         }
     }
 
