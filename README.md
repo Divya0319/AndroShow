@@ -1,7 +1,7 @@
-# AvengersUniverse
-An app built in the memory of the blockbuster movie "Avengers-Infinity War"
+# AndroShow
+An app built to demonstrate the various functionalities of Android.
 
-Here are some of the snapshots of the app
+Here are some of the snapshots of the app.
 
 ### Home Screen
 ![HomeScreen](https://github.com/Divya0319/AvengersUniverse/blob/master/screenshots/Avengers%20Universe%20SS.jpg)
