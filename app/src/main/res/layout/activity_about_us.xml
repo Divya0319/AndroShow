@@ -4,12 +4,11 @@
     android:id="@+id/relativeAboutUs"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_gradient_with_center">
+    android:background="@drawable/radial_gradient_voilet">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/tool_bar"
         android:layout_width="match_parent"
-        android:theme="@style/Toolbar.Button.Navigation.Tinted.Black"
         app:navigationIcon="?attr/homeAsUpIndicator"
         android:layout_height="36dp"/>
 
@@ -22,7 +21,7 @@
         android:layout_centerHorizontal="true"
         android:gravity="center"
         android:text="@string/AboutMovie_Text"
-        android:textColor="#10273E"
+        android:textColor="#BFCAD5"
         android:textSize="24sp" />
 
     <LinearLayout

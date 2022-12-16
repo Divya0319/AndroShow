@@ -5,7 +5,7 @@
     android:id="@+id/relativeVideos"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/movie_video_page_bg"
+    android:background="@drawable/radial_gradient_grey"
     android:orientation="vertical"
     tools:context=".activities.VideosActivity">
 

@@ -4,7 +4,7 @@
     android:id="@+id/relativeRingTones"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_radial_gradient_with_center">
+    android:background="@drawable/radial_gradient_brown_more_radius">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/tool_bar"

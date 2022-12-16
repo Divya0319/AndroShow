@@ -4,7 +4,7 @@
     android:id="@+id/relativeSongs"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_gradient_with_dark_green">
+    android:background="@drawable/radial_gradient_with_center_color_dark_green">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/tool_bar"

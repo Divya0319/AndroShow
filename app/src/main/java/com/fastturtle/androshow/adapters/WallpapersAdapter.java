@@ -69,7 +69,10 @@ public class WallpapersAdapter extends RecyclerView.Adapter<WallpapersAdapter.Vi
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
 
-        Glide.with(contextGlobal).asBitmap().load(imagesArrayList.get(position).getURL()).into(new SimpleTarget<Bitmap>() {
+        Glide.with(contextGlobal)
+                .asBitmap()
+                .load(imagesArrayList.get(holder.getBindingAdapterPosition()).getURL())
+                .into(new SimpleTarget<Bitmap>() {
             @Override
             public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
                 w = resource.getWidth();

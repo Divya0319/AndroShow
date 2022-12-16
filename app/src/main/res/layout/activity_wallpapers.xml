@@ -4,7 +4,7 @@
     android:id="@+id/gridlayout_id"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_orange">
+    android:background="@drawable/radial_gradient_blue">
 
     <TextView
         android:id="@+id/textWallpaper"
