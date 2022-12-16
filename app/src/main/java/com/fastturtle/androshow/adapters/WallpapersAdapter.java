@@ -37,7 +37,7 @@ import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 
-public class WallpapersAdapter extends RecyclerView.Adapter<WallpapersAdapter.ViewHolder> implements ActivityCompat.OnRequestPermissionsResultCallback {
+public class WallpapersAdapter extends RecyclerView.Adapter<WallpapersAdapter.ViewHolder> {
 
     private Activity contextGlobal;
     private View mView;
@@ -46,6 +46,7 @@ public class WallpapersAdapter extends RecyclerView.Adapter<WallpapersAdapter.Vi
     private ArrayList<WallpapersModel> imagesArrayList;
     private View snackView;
     private String selectedWallpaperDownloadUrl = "";
+    private int position;
 
     public WallpapersAdapter(Activity context, ArrayList<WallpapersModel> imagesArrayList) {
         this.imagesArrayList = imagesArrayList;
@@ -81,7 +82,7 @@ public class WallpapersAdapter extends RecyclerView.Adapter<WallpapersAdapter.Vi
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loadPhoto(holder.imageview, w, h, contextGlobal, holder.getAdapterPosition());
+                loadPhoto(holder.imageview, w, h, contextGlobal, holder.getBindingAdapterPosition());
             }
         });
 
@@ -105,6 +106,7 @@ public class WallpapersAdapter extends RecyclerView.Adapter<WallpapersAdapter.Vi
 
 
     private void loadPhoto(final ImageView imageView, final int width, final int height, final Context context, final int position) {
+        this.position = position;
 
         AlertDialog.Builder imageDialog = new AlertDialog.Builder(context);
 
@@ -124,7 +126,7 @@ public class WallpapersAdapter extends RecyclerView.Adapter<WallpapersAdapter.Vi
             AlertDialog.Builder optionsDialog = new AlertDialog.Builder(context);
             optionsDialog.setTitle("");
             optionsDialog.setItems(wallOptions, (dialogInterface, i) -> {
-                if(wallOptions[0].equals(wallOptions[i])) {
+                if (wallOptions[0].equals(wallOptions[i])) {
 
                     selectedWallpaperDownloadUrl = imagesArrayList.get(position).getURL();
 
@@ -133,10 +135,10 @@ public class WallpapersAdapter extends RecyclerView.Adapter<WallpapersAdapter.Vi
                         ActivityCompat.requestPermissions(contextGlobal,
                                 new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, Config.MY_PERMISSIONS_WRITE_EXTERNAL_STORAGE);
                     } else {
-                        ((WallpaperPoster)contextGlobal).startFileDownload(selectedWallpaperDownloadUrl);
-                        Toast.makeText(contextGlobal, "Downloading...", Toast.LENGTH_SHORT).show();
+                        ((WallpaperPoster) contextGlobal).startFileDownload(selectedWallpaperDownloadUrl, imagesArrayList.get(position).getTitle());
+                        Toast.makeText(contextGlobal, "Download started...", Toast.LENGTH_SHORT).show();
                     }
-                } else if(wallOptions[1].equals(wallOptions[i])) {
+                } else if (wallOptions[1].equals(wallOptions[i])) {
                     final RequestOptions options = new RequestOptions().placeholder(R.drawable.wallpaper_icon);
                     Glide.with(context).asBitmap()
                             .load(imagesArrayList.get(position).getURL())
@@ -151,7 +153,7 @@ public class WallpapersAdapter extends RecyclerView.Adapter<WallpapersAdapter.Vi
                                                     WallpapersAdapter.height, context));
                                 }
                             });
-                } else if(wallOptions[2].equals(wallOptions[i])) {
+                } else if (wallOptions[2].equals(wallOptions[i])) {
                     RequestOptions options = new RequestOptions().placeholder(R.drawable.wallpaper_icon);
                     Glide.with(context).asBitmap()
                             .load(imagesArrayList.get(position).getURL())
@@ -180,12 +182,12 @@ public class WallpapersAdapter extends RecyclerView.Adapter<WallpapersAdapter.Vi
         imageDialog.show();
     }
 
-    @Override
+
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         switch (requestCode) {
             case Config.MY_PERMISSIONS_WRITE_EXTERNAL_STORAGE: {
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    ((WallpaperPoster)contextGlobal).startFileDownload(selectedWallpaperDownloadUrl);
+                    ((WallpaperPoster) contextGlobal).startFileDownload(selectedWallpaperDownloadUrl, imagesArrayList.get(position).getTitle());
                     Toast.makeText(contextGlobal, "Downloading...", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(contextGlobal, "Create Directory permission was not granted", Toast.LENGTH_SHORT).show();

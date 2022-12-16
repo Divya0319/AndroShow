@@ -9,11 +9,15 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.util.Log;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.WindowManager;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
+import com.fastturtle.androshow.models.VideosResponse;
+import com.fastturtle.androshow.models.WallpapersModel;
 import com.fastturtle.androshow.network.NetworkKeys;
 import com.gigamole.infinitecycleviewpager.HorizontalInfiniteCycleViewPager;
 import com.google.android.material.navigation.NavigationView;
@@ -23,32 +27,77 @@ import com.fastturtle.androshow.adapters.AutoSwipePicsPagerAdapter;
 import com.fastturtle.androshow.adapters.AutoSwipeVideoPagerAdapter;
 import com.fastturtle.androshow.common.AbstractBaseActivity;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class DashBoardActivity extends AbstractBaseActivity {
 
     private DrawerLayout mDrawerLayout;
 
     boolean backToExitPressedOnce = false;
     Intent i;
-    private String trending_videos_id[] = {
-            "HKmAex_qogE",
-            "XfNj5c9bW-k",
-            "e9gW3Ejg2uY",
-    };
-    private String videos_desc[] = {
-            "Avengers the endgame glipmse",
-            "(MCU) Stephen & Christine - Glimpse Of Us",
-            "TOP 10 BEST ACTION SCENES FROM MARVEL MOVIES",
+    private String[] trending_videos_id = new String[3];
+    private String[] videos_desc = new String[3];
+    private String[] promo_images_url = new String[3];
+    private String[] promo_desc = new String[3];
 
+    HorizontalInfiniteCycleViewPager viewPagerVideos;
+    HorizontalInfiniteCycleViewPager viewPagerPhotos;
+
+    AutoSwipeVideoPagerAdapter pagerAdapterVideos;
+    AutoSwipePicsPagerAdapter pagerAdapterPics;
+
+
+    private Callback<List<VideosResponse>> videosResponseCallback = new Callback<List<VideosResponse>>() {
+        @Override
+        public void onResponse(Call<List<VideosResponse>> call, retrofit2.Response<List<VideosResponse>> response) {
+
+            if (response.isSuccessful()) {
+                List<VideosResponse> vrl = response.body();
+                for(int i = 0; i < 3; i++) {
+                    trending_videos_id[i] = vrl.get(i).getVIDID();
+                    videos_desc[i] = vrl.get(i).getTITLE();
+                    pagerAdapterVideos = new AutoSwipeVideoPagerAdapter(DashBoardActivity.this, trending_videos_id, videos_desc);
+                    viewPagerVideos.setAdapter(pagerAdapterVideos);
+                    viewPagerVideos.setCurrentItem(1);
+                    new AsyncAutoSwipeVideos().execute(viewPagerVideos);
+                }
+            }
+        }
+
+        @Override
+        public void onFailure(Call<List<VideosResponse>> call, Throwable t) {
+
+            Log.d(getString(R.string.somethingWentWrong), t.getMessage());
+            Toast.makeText(DashBoardActivity.this, getString(R.string.somethingWentWrong), Toast.LENGTH_LONG).show();
+        }
     };
-    private String[] promo_images_url = {
-            NetworkKeys.ANDROSHOW_BASE_URL + "/walls/green_lake.jpg",
-            NetworkKeys.ANDROSHOW_BASE_URL + "/walls/hexagonal.jpg",
-            NetworkKeys.ANDROSHOW_BASE_URL + "/walls/green_grass.jpg"
-    };
-    private String[] promo_desc = {
-            "Green Lake",
-            "Hexagonal",
-            "Green Grass"
+
+    private Callback<List<WallpapersModel>> wallpaperCallback = new Callback<List<WallpapersModel>>() {
+        @Override
+        public void onResponse(Call<List<WallpapersModel>> call, Response<List<WallpapersModel>> response) {
+            if (response.isSuccessful()) {
+                List<WallpapersModel> wml = response.body();
+                for(int i = 0; i < 3; i++) {
+                    promo_images_url[i] = wml.get(i).getURL();
+                    promo_desc[i] = wml.get(i).getTitle();
+                    pagerAdapterPics = new AutoSwipePicsPagerAdapter(DashBoardActivity.this, promo_images_url, promo_desc);
+                    viewPagerPhotos.setAdapter(pagerAdapterPics);
+                    viewPagerPhotos.setCurrentItem(2);
+                    new AsyncAutoSwipePhoto().execute(viewPagerPhotos);
+                }
+            }
+        }
+
+        @Override
+        public void onFailure(Call<List<WallpapersModel>> call, Throwable t) {
+            Log.d(getString(R.string.somethingWentWrong), t.getMessage());
+            Toast.makeText(DashBoardActivity.this, getString(R.string.somethingWentWrong), Toast.LENGTH_LONG).show();
+        }
     };
 
     @Override
@@ -65,17 +114,11 @@ public class DashBoardActivity extends AbstractBaseActivity {
         mDrawerLayout = findViewById(R.id.drawer_layout);
         mDrawerLayout.closeDrawers();
         i = new Intent();
-        HorizontalInfiniteCycleViewPager viewPagerVideos = findViewById(R.id.viewPagerVideos);
-        HorizontalInfiniteCycleViewPager viewPagerPhotos = findViewById(R.id.viewPagerPhotos);
-        AutoSwipeVideoPagerAdapter pagerAdapterVideos = new AutoSwipeVideoPagerAdapter(this, trending_videos_id, videos_desc);
-        AutoSwipePicsPagerAdapter pagerAdapterPics = new AutoSwipePicsPagerAdapter(this, promo_images_url, promo_desc);
+        viewPagerVideos = findViewById(R.id.viewPagerVideos);
+        viewPagerPhotos = findViewById(R.id.viewPagerPhotos);
 
-        viewPagerVideos.setAdapter(pagerAdapterVideos);
-        viewPagerVideos.setCurrentItem(1);
-        new AsyncAutoSwipeVideos().execute(viewPagerVideos);
-        viewPagerPhotos.setAdapter(pagerAdapterPics);
-        viewPagerPhotos.setCurrentItem(2);
-        new AsyncAutoSwipePhoto().execute(viewPagerPhotos);
+        callVideosAPI();
+        callWallpaperPosterAPI();
 
         NavigationView navView = findViewById(R.id.nav_view);
         navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
@@ -136,6 +179,22 @@ public class DashBoardActivity extends AbstractBaseActivity {
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void callVideosAPI() {
+        if (connectionChecker.checkInternet()) {
+            Toast.makeText(getApplicationContext(), getString(R.string.checkInternetMessage), Toast.LENGTH_LONG).show();
+        } else {
+            apiIntegrationHelper.videosData(videosResponseCallback);
+        }
+    }
+
+    private void callWallpaperPosterAPI() {
+        if (connectionChecker.checkInternet()) {
+            Toast.makeText(getApplicationContext(), getString(R.string.checkInternetMessage), Toast.LENGTH_LONG).show();
+        } else {
+            apiIntegrationHelper.wallpaperBg(wallpaperCallback);
+        }
     }
 
     static class AsyncAutoSwipeVideos extends AsyncTask<HorizontalInfiniteCycleViewPager, Void, Void> {

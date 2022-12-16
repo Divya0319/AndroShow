@@ -38,32 +38,33 @@ public class StartingActivity extends AbstractBaseActivity {
                 Context.CONNECTIVITY_SERVICE);
         final NetworkInfo activeNetwork = conMgr.getActiveNetworkInfo();
 
-            new Handler().postDelayed(() -> {
-                if (activeNetwork != null && activeNetwork.isConnected()) {
-                    appIcon.setVisibility(View.VISIBLE);
+        new Handler().postDelayed(() -> {
+            appIcon.setVisibility(View.VISIBLE);
 
-                    if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-                        AnimatedVectorDrawable drawable = (AnimatedVectorDrawable) appIcon.getDrawable();
-                        drawable.start();
-                    } else {
-                        appIcon.setImageResource(R.mipmap.ic_launcher);
-                    }
-                } else {
-                    Intent i2 = new Intent(getApplicationContext(), NotConnectedActivity.class);
-                    startActivity(i2);
-                    finish();
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+                AnimatedVectorDrawable drawable = (AnimatedVectorDrawable) appIcon.getDrawable();
+                drawable.start();
+            } else {
+                appIcon.setImageResource(R.mipmap.ic_launcher);
+            }
 
-                }
 
-            }, 500);
+        }, 500);
 
-            new Handler().postDelayed(() -> {
+        new Handler().postDelayed(() -> {
+            if (activeNetwork != null && activeNetwork.isConnected()) {
                 Intent i1 = new Intent(getApplicationContext(), DashBoardActivity.class);
                 startActivity(i1);
                 finish();
-            }, 2000);
+            } else {
+                Intent i2 = new Intent(getApplicationContext(), NotConnectedActivity.class);
+                startActivity(i2);
+                finish();
 
-        }
+            }
+        }, 2000);
+
+    }
 
 //                } catch (Exception e) {
 //                    e.printStackTrace();

@@ -34,7 +34,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class WallpaperPoster extends AbstractBaseActivity implements ActivityCompat.OnRequestPermissionsResultCallback {
+public class WallpaperPoster extends AbstractBaseActivity {
     private WallpapersAdapter posterAdapter;
     private ArrayList<WallpapersModel> wallpapersModelArrayList;
     private ProgressDialog simpleWaitDialog;
@@ -99,6 +99,7 @@ public class WallpaperPoster extends AbstractBaseActivity implements ActivityCom
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         switch (requestCode) {
             case Config.MY_PERMISSIONS_WRITE_EXTERNAL_STORAGE: {
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
@@ -111,9 +112,9 @@ public class WallpaperPoster extends AbstractBaseActivity implements ActivityCom
         }
     }
 
-    public void startFileDownload(String downloadFileUri) {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmm'.jpg'", Locale.ENGLISH);
-        String fileName = sdf.format(new Date());
+    public void startFileDownload(String downloadFileUri, String fileName) {
+//        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmm'.jpg'", Locale.ENGLISH);
+//        String fileName = sdf.format(new Date());
         DownloadManager downloadManager = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
 
         Uri uri = Uri.parse(downloadFileUri);
@@ -121,7 +122,7 @@ public class WallpaperPoster extends AbstractBaseActivity implements ActivityCom
         request.setTitle("Wallpaper Download");
         request.setDescription("in progress");
         request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS,
-                "/AvengersWallpaperDownloads/" + fileName);
+                "/AndroShow/Wallpapers/" + fileName + ".jpg");
         request.setVisibleInDownloadsUi(true);
         request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
 
