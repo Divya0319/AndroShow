@@ -34,6 +34,8 @@
                     android:id="@+id/pager_title_photos"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:ellipsize="end"
+                    android:maxLines="2"
                     android:padding="18sp"
                     android:text=""
                     android:textColor="#ffffff"

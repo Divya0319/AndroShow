@@ -1,18 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="120dp"
-    android:background="@drawable/headphone_background"
+    android:layout_height="wrap_content"
+    android:background="@color/light_orange"
     android:gravity="bottom"
     android:orientation="vertical"
     android:padding="10dp"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:rotation="-10"
+            android:contentDescription="@string/app_icon"
+            android:src="@mipmap/ic_launcher_foreground" />
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_marginStart="80dp"
+            android:layout_height="150dp"
+            android:contentDescription="@string/app_icon"
+            android:rotation="30"
+            android:src="@mipmap/ic_launcher_foreground" />
+
+    </FrameLayout>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:text="@string/what_is_your_wish"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/black" />
 
 </LinearLayout>

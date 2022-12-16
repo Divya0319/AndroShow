@@ -14,7 +14,7 @@
     <string name="player_error">Error initializing YouTube player</string>
     <string name="RingtonesText">Ringtones</string>
     <string name="Avengers">Avengers</string>
-    <string name="AboutMovie_Text">About Movie</string>
+    <string name="AboutMovie_Text">About Us</string>
     <string name="duration">Duration :</string>
     <string name="RingDownText">Download Ringtones</string>
     <string name="ViewWallText">View Wallpapers</string>
@@ -30,9 +30,9 @@
     <string name="RingTonesButton">Ringtones Button</string>
     <string name="AboutUsIcon">About Us Icon</string>
     <string name="click_text">Click Here</string>
-    <string name="wiki_url">"https://en.wikipedia.org/wiki/Avengers:_Infinity_War"</string>
-    <string name="adUnitId">ca-app-pub-4759311195261541/7914600268</string>
+    <string name="wiki_url">"https://sites.google.com/view/androshow/home"</string>
     <string name="checkInternetMessage">Please check your internet connection</string>
     <string name="somethingWentWrong">Something Went Wrong!!  </string>
     <string name="what_is_your_wish">What is your wish?</string>
+    <string name="app_icon">App icon</string>
 </resources>
