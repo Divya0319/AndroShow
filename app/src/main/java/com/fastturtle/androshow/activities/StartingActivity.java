@@ -19,8 +19,9 @@ public class StartingActivity extends AbstractBaseActivity {
 
     @Override
     protected void onCreatingBase(Bundle savedInstanceState) {
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_splash);
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         ImageView appIcon = findViewById(R.id.iv_app_icon);
 

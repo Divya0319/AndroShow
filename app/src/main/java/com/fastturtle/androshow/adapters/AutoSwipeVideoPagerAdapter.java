@@ -38,7 +38,7 @@ public class AutoSwipeVideoPagerAdapter extends PagerAdapter {
         TextView tv = view.findViewById(R.id.pager_title_videos);
         tv.setText(video_desc[position]);
         RequestOptions options = new RequestOptions().placeholder(R.drawable.wallpaper_icon);
-        Glide.with(ctx).load("https://i.ytimg.com/vi/" + trending_vidId[position] + "/0.jpg").apply(options).into(img);
+        Glide.with(ctx).load("https://i.ytimg.com/vi/" + trending_vidId[position] + "/mqdefault.jpg").apply(options).into(img);
 
         container.addView(view);
         return view;

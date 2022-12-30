@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:padding="8dp"
     android:background="#ffffff">
 
     <ImageView
@@ -16,7 +17,10 @@
         android:id="@+id/ringTones_title"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_margin="3dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginBottom="3dp"
         android:layout_toEndOf="@+id/ringPlayIcon"
         android:text="Song Title:"
         android:textColor="#10607A"
@@ -27,9 +31,11 @@
         android:id="@+id/ringTones_duration"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/ringTones_title"
         android:layout_below="@+id/ringTones_title"
-        android:layout_margin="3dp"
+        android:layout_alignStart="@+id/ringTones_title"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginBottom="3dp"
         android:text="Duration:"
         android:textColor="#17A3D1"
         android:textStyle="bold" />

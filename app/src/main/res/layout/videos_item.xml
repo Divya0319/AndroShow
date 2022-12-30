@@ -7,48 +7,55 @@
     app:cardElevation="4dp"
     app:cardUseCompatPadding="true">
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:weightSum="4">
 
-        <ImageView
-            android:id="@+id/videothumb"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_centerHorizontal="true"
-            android:contentDescription="@string/app_name"
-            android:scaleType="fitXY" />
-
-        <TextView
-            android:id="@+id/Title"
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/videothumb"
-            android:padding="5dp"
-            android:text="@string/text_wallpapers"
-            android:textColor="#10607A"
-            android:textSize="18sp" />
+            android:layout_gravity="center_horizontal">
 
-        <TextView
-            android:id="@+id/Duration"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/Title"
-            android:background="#fff"
-            android:padding="5dp"
-            android:text="@string/duration"
-            android:textColor="#17A3D1"
-            android:textSize="12sp" />
+            <ImageView
+                android:id="@+id/videothumb"
+                android:layout_width="match_parent"
+                android:layout_height="230dp"
+                android:scaleType="fitXY" />
 
-        <TextView
-            android:id="@+id/vid_id"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/Duration"
-            android:layout_alignBottom="@+id/Duration"
-            android:layout_alignStart="@+id/Title"
-            android:layout_marginStart="36dp"
-            android:visibility="invisible" />
-    </RelativeLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start|bottom"
+                android:background="@drawable/semi_transparent_grey"
+                android:orientation="vertical"
+                android:paddingBottom="8dp">
+
+                <TextView
+                    android:id="@+id/Title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:padding="5dp"
+                    android:text="@string/videosString"
+                    android:textColor="#10607A"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/Duration"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:padding="5dp"
+                    android:text="@string/duration"
+                    android:textColor="#17A3D1"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+        </FrameLayout>
+    </LinearLayout>
 
 </androidx.cardview.widget.CardView>

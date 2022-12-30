@@ -3,10 +3,10 @@ package com.fastturtle.androshow.adapters;
 import static android.content.Context.LAYOUT_INFLATER_SERVICE;
 
 import android.Manifest;
-import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,10 +18,14 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.CustomTarget;
+import com.bumptech.glide.request.transition.Transition;
 import com.fastturtle.androshow.R;
 import com.fastturtle.androshow.activities.WallpaperPoster;
 import com.fastturtle.androshow.models.AsyncParams;
@@ -29,17 +33,13 @@ import com.fastturtle.androshow.models.WallpapersModel;
 import com.fastturtle.androshow.staticclasses.Config;
 import com.fastturtle.androshow.staticclasses.SetAsHomeWallpaperAsync;
 import com.fastturtle.androshow.staticclasses.SetAsLockWallpaperAsync;
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
-import com.bumptech.glide.request.target.SimpleTarget;
-import com.bumptech.glide.request.transition.Transition;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 
 public class WallpapersAdapter extends RecyclerView.Adapter<WallpapersAdapter.ViewHolder> {
 
-    private Activity contextGlobal;
+    private Context contextGlobal;
     private View mView;
     private static int w, h;
     public static int height, width;
@@ -48,13 +48,9 @@ public class WallpapersAdapter extends RecyclerView.Adapter<WallpapersAdapter.Vi
     private String selectedWallpaperDownloadUrl = "";
     private int position;
 
-    public WallpapersAdapter(Activity context, ArrayList<WallpapersModel> imagesArrayList) {
+    public WallpapersAdapter(Context context, ArrayList<WallpapersModel> imagesArrayList) {
         this.imagesArrayList = imagesArrayList;
         this.contextGlobal = context;
-    }
-
-    public WallpapersAdapter() {
-
     }
 
     @NonNull
@@ -72,14 +68,19 @@ public class WallpapersAdapter extends RecyclerView.Adapter<WallpapersAdapter.Vi
         Glide.with(contextGlobal)
                 .asBitmap()
                 .load(imagesArrayList.get(holder.getBindingAdapterPosition()).getURL())
-                .into(new SimpleTarget<Bitmap>() {
-            @Override
-            public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
-                w = resource.getWidth();
-                h = resource.getHeight();
-                holder.imageview.setImageBitmap(resource);
-            }
-        });
+                .into(new CustomTarget<Bitmap>() {
+                    @Override
+                    public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
+                        w = resource.getWidth();
+                        h = resource.getHeight();
+                        holder.imageview.setImageBitmap(resource);
+                    }
+
+                    @Override
+                    public void onLoadCleared(@Nullable Drawable placeholder) {
+
+                    }
+                });
 
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
@@ -135,18 +136,17 @@ public class WallpapersAdapter extends RecyclerView.Adapter<WallpapersAdapter.Vi
 
                     if (ContextCompat.checkSelfPermission(context, Manifest.permission.WRITE_EXTERNAL_STORAGE)
                             != PackageManager.PERMISSION_GRANTED) {
-                        ActivityCompat.requestPermissions(contextGlobal,
+                        ActivityCompat.requestPermissions((AppCompatActivity) contextGlobal,
                                 new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, Config.MY_PERMISSIONS_WRITE_EXTERNAL_STORAGE);
                     } else {
                         ((WallpaperPoster) contextGlobal).startFileDownload(selectedWallpaperDownloadUrl, imagesArrayList.get(position).getTitle());
                         Toast.makeText(contextGlobal, "Download started...", Toast.LENGTH_SHORT).show();
                     }
                 } else if (wallOptions[1].equals(wallOptions[i])) {
-                    final RequestOptions options = new RequestOptions().placeholder(R.drawable.wallpaper_icon);
                     Glide.with(context).asBitmap()
                             .load(imagesArrayList.get(position).getURL())
-                            .apply(options)
-                            .into(new SimpleTarget<Bitmap>() {
+                            .placeholder(R.drawable.wallpaper_icon)
+                            .into(new CustomTarget<Bitmap>() {
                                 @Override
                                 public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
                                     new SetAsHomeWallpaperAsync()
@@ -155,13 +155,18 @@ public class WallpapersAdapter extends RecyclerView.Adapter<WallpapersAdapter.Vi
                                                     WallpapersAdapter.width,
                                                     WallpapersAdapter.height, context));
                                 }
+
+                                @Override
+                                public void onLoadCleared(@Nullable Drawable placeholder) {
+
+                                }
                             });
+
                 } else if (wallOptions[2].equals(wallOptions[i])) {
-                    RequestOptions options = new RequestOptions().placeholder(R.drawable.wallpaper_icon);
                     Glide.with(context).asBitmap()
+                            .placeholder(R.drawable.wallpaper_icon)
                             .load(imagesArrayList.get(position).getURL())
-                            .apply(options)
-                            .into(new SimpleTarget<Bitmap>() {
+                            .into(new CustomTarget<Bitmap>() {
                                 @Override
                                 public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
                                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
@@ -174,6 +179,11 @@ public class WallpapersAdapter extends RecyclerView.Adapter<WallpapersAdapter.Vi
                                         Snackbar.make(snackView, "For Marshmallow and below, LockScreen wallpapers can only be downloaded",
                                                 Snackbar.LENGTH_LONG).show();
                                     }
+                                }
+
+                                @Override
+                                public void onLoadCleared(@Nullable Drawable placeholder) {
+
                                 }
                             });
                 }

@@ -5,31 +5,29 @@ import android.os.Bundle;
 import android.view.WindowManager;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.fastturtle.androshow.BuildConfig;
 import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerView;
 import com.fastturtle.androshow.R;
-import com.fastturtle.androshow.staticclasses.Config;
 
 public class YouTubeVideoActivity extends YouTubeBaseActivity implements YouTubePlayer.OnInitializedListener {
 
     private static final int RECOVERY_REQUEST = 1;
     private YouTubePlayerView youTubeView;
-    Bundle bun;
-    String videoIdBundle;
+    Intent intent;
+    String videoIdFromIntent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_videos);
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        bun = getIntent().getExtras();
-        videoIdBundle = bun.getString("VideoId");
+        intent = getIntent();
+        videoIdFromIntent = intent.getStringExtra("videoId");
         youTubeView = findViewById(R.id.youtube_view);
         youTubeView.initialize(BuildConfig.YOUTUBE_API_KEY_PART_1 +
                 BuildConfig.YOUTUBE_API_KEY_PART_2 +
@@ -43,7 +41,7 @@ public class YouTubeVideoActivity extends YouTubeBaseActivity implements YouTube
 //        if (!wasRestored) {
 //            player.cueVideo(VideoIdBundle);
 //        }
-        player.loadVideo(videoIdBundle);
+        player.loadVideo(videoIdFromIntent);
         player.play();
     }
 

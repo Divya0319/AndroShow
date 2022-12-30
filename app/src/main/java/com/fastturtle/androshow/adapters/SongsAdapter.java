@@ -47,8 +47,8 @@ public class SongsAdapter extends ArrayAdapter<DoctorSongsResponse> {
             holder = (ViewHolder) convertView.getTag();
         }
         String title = songList.get(position).getTITLE();
-        String singer = "\nSinger:" + songList.get(position).getSINGER();
-        String duration = "\nDuration:" + songList.get(position).getDURATION();
+        String singer = "\nSinger: " + songList.get(position).getSINGER();
+        String duration = "\nDuration: " + songList.get(position).getDURATION();
 
         SpannableStringBuilder builder = new SpannableStringBuilder();
         Spannable span = new SpannableString(title);
