@@ -6,4 +6,6 @@ public interface NetworkKeys {
     String SONGS_ENDPOINT = "/apis/songs.json";
     String VIDEOS_ENDPOINT = "/apis/videos.json";
     String WALLPAPER_BG_ENDPOINT = "/apis/walls.json";
+    String DUMMY_LOCALHOST = "http://192.168.240.15:8000/employees";
+
 }

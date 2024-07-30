@@ -4,6 +4,8 @@ import com.fastturtle.androshow.models.DoctorSongsResponse;
 import com.fastturtle.androshow.models.RingtonesResponse;
 import com.fastturtle.androshow.models.VideosResponse;
 import com.fastturtle.androshow.models.WallpapersModel;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
 
 import java.util.List;
 
@@ -50,6 +52,11 @@ public class APIIntegrationHelper {
     public void wallpaperBg(Callback<List<WallpapersModel>> wallpaperBgCallback) {
         Call<List<WallpapersModel>> getWallpaperBg = mApiServices.getBGWallpapers();
         getWallpaperBg.enqueue(wallpaperBgCallback);
+    }
+
+    public void dummyEmpData(Callback<JsonArray> dummyEmpCallback) {
+        Call<JsonArray> getDummyEmpData = mApiServices.getDummyEmps();
+        getDummyEmpData.enqueue(dummyEmpCallback);
     }
 
 }

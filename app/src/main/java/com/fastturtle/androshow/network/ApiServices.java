@@ -4,6 +4,7 @@ import com.fastturtle.androshow.models.DoctorSongsResponse;
 import com.fastturtle.androshow.models.RingtonesResponse;
 import com.fastturtle.androshow.models.VideosResponse;
 import com.fastturtle.androshow.models.WallpapersModel;
+import com.google.gson.JsonArray;
 
 import java.util.List;
 
@@ -22,4 +23,7 @@ public interface ApiServices {
 
     @GET(NetworkKeys.WALLPAPER_BG_ENDPOINT)
     Call<List<WallpapersModel>> getBGWallpapers();
+
+    @GET(NetworkKeys.DUMMY_LOCALHOST)
+    Call<JsonArray> getDummyEmps();
 }

@@ -29,12 +29,15 @@ import com.fastturtle.androshow.adapters.RingTonesAdapter;
 import com.fastturtle.androshow.common.AbstractBaseActivity;
 import com.fastturtle.androshow.models.RingtonesResponse;
 import com.fastturtle.androshow.staticclasses.Config;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
+import retrofit2.Response;
 
 public class RingTonesActivity extends AbstractBaseActivity {
 
@@ -69,6 +72,21 @@ public class RingTonesActivity extends AbstractBaseActivity {
             mProgressDialog.dismiss();
             Log.d(getString(R.string.somethingWentWrong), t.getMessage());
 
+        }
+    };
+
+    private final Callback<JsonArray> dummyEmpCallback = new Callback<JsonArray>() {
+        @Override
+        public void onResponse(Call<JsonArray> call, Response<JsonArray> response) {
+            if(response.isSuccessful()) {
+                JsonArray jEle = response.body();
+                Log.d("Employees:", jEle.toString());
+            }
+        }
+
+        @Override
+        public void onFailure(Call<JsonArray> call, Throwable t) {
+            Log.d(getString(R.string.somethingWentWrong), t.getMessage());
         }
     };
 
@@ -114,6 +132,7 @@ public class RingTonesActivity extends AbstractBaseActivity {
         } else {
             mProgressDialog.show();
             apiIntegrationHelper.ringtonesData(ringtonesCallback);
+            apiIntegrationHelper.dummyEmpData(dummyEmpCallback);
         }
     }
 

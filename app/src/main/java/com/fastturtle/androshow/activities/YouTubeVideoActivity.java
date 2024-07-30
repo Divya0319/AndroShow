@@ -3,19 +3,19 @@ package com.fastturtle.androshow.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.WindowManager;
-import android.widget.Toast;
 
-import com.fastturtle.androshow.BuildConfig;
-import com.google.android.youtube.player.YouTubeBaseActivity;
-import com.google.android.youtube.player.YouTubeInitializationResult;
-import com.google.android.youtube.player.YouTubePlayer;
-import com.google.android.youtube.player.YouTubePlayerView;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer;
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener;
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView;
 import com.fastturtle.androshow.R;
 
-public class YouTubeVideoActivity extends YouTubeBaseActivity implements YouTubePlayer.OnInitializedListener {
+public class YouTubeVideoActivity extends AppCompatActivity {
 
     private static final int RECOVERY_REQUEST = 1;
-    private YouTubePlayerView youTubeView;
+    private YouTubePlayerView youTubePlayerView;
     Intent intent;
     String videoIdFromIntent;
 
@@ -28,46 +28,18 @@ public class YouTubeVideoActivity extends YouTubeBaseActivity implements YouTube
 
         intent = getIntent();
         videoIdFromIntent = intent.getStringExtra("videoId");
-        youTubeView = findViewById(R.id.youtube_view);
-        youTubeView.initialize(BuildConfig.YOUTUBE_API_KEY_PART_1 +
-                BuildConfig.YOUTUBE_API_KEY_PART_2 +
-                BuildConfig.YOUTUBE_API_KEY_PART_3 +
-                BuildConfig.YOUTUBE_API_KEY_PART_4, this);
+        youTubePlayerView = findViewById(R.id.youtube_player_view);
+        getLifecycle().addObserver(youTubePlayerView);
+
+        youTubePlayerView.addYouTubePlayerListener(new AbstractYouTubePlayerListener() {
+            @Override
+            public void onReady(@NonNull YouTubePlayer youTubePlayer) {
+                youTubePlayer.loadVideo(videoIdFromIntent, 0);
+                youTubePlayer.play();
+            }
+        });
 
     }
 
-    @Override
-    public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer player, boolean wasRestored) {
-//        if (!wasRestored) {
-//            player.cueVideo(VideoIdBundle);
-//        }
-        player.loadVideo(videoIdFromIntent);
-        player.play();
-    }
-
-    @Override
-    public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult errorReason) {
-        if (errorReason.isUserRecoverableError()) {
-            errorReason.getErrorDialog(this, RECOVERY_REQUEST).show();
-        } else {
-            String error = getString(R.string.player_error);
-            Toast.makeText(this, error, Toast.LENGTH_LONG).show();
-        }
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == RECOVERY_REQUEST) {
-            // Retry initialization if user performed a recovery action
-            getYouTubePlayerProvider().initialize(BuildConfig.YOUTUBE_API_KEY_PART_1 +
-                    BuildConfig.YOUTUBE_API_KEY_PART_2 +
-                    BuildConfig.YOUTUBE_API_KEY_PART_3 +
-                    BuildConfig.YOUTUBE_API_KEY_PART_4, this);
-        }
-    }
-
-    protected YouTubePlayer.Provider getYouTubePlayerProvider() {
-        return youTubeView;
-    }
 
 }
