@@ -37,8 +37,6 @@ import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 
-import io.fastturtle.BmpWaterMark.WaterMarkProvider;
-
 public class WallpapersAdapter extends RecyclerView.Adapter<WallpapersAdapter.ViewHolder> {
 
     private Context contextGlobal;
@@ -49,12 +47,10 @@ public class WallpapersAdapter extends RecyclerView.Adapter<WallpapersAdapter.Vi
     private View snackView;
     private String selectedWallpaperDownloadUrl = "";
     private int position;
-    private WaterMarkProvider wmp;
 
     public WallpapersAdapter(Context context, ArrayList<WallpapersModel> imagesArrayList) {
         this.imagesArrayList = imagesArrayList;
         this.contextGlobal = context;
-        wmp = new WaterMarkProvider(context);
     }
 
     @NonNull
